@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+<body class="bg-info-subtle">
+    <header>
+        <h1 class="text-center mt-5 fw-bold">Corona Api</h1>
+    </header>
+    
+    <main class="pb-5">
+        <div class="container">
+            <div class="d-flex justify-content-center py-3">
+                <div class="w-25 text-center">
+                    <img src="./assets/media/img/image.png" alt="" class="img-fluid w-50">
+                </div>
+            </div>
+            <div class="d-flex gap-3 justify-content-center align-items-center">
+                <h2>Total Cases</h2>
+                <p id="total" class="m-0">9999</p>
+            </div>
+            <div class="d-flex gap-3 justify-content-center align-items-center">
+                <h2>Total Deaths</h2>
+                <p id="deaths" class="m-0"></p>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center mt-5">
+                <form class="d-flex flex-column w-50">
+                    <div>
+                        <label for="stateInput" class="form-label d-block text-center">Search state corona stats</label>
+                        <input type="text" id="stateInput" class="form-control" placeholder="Search by state name">
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-warning">Search</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="card mt-5 shadow rounded rounded-3 p-3 text-center bg-warning-subtle">
+                    <h2 id="stateName">{start searching}</h2>
+                    <div class="d-flex gap-1">
+                        <p class="m-0">Confirmed cases: </p>
+                        <p class="m-0" id="cases">{start searching}</p>
+                    </div>
+                    <div class="d-flex gap-1">
+                        <p class="m-0">Discharged: </p>
+                        <p class="m-0" id="discharged">{start searching}</p>
+                    </div>
+                    <div class="d-flex gap-1">
+                        <p class="m-0">Confirmed deaths: </p>
+                        <p class="m-0" id="cdeaths">{start searching}</p>
+                    </div>
+                </div>
+            </div>
+            
+
+            <h2 class="text-center mt-5">Explore all the states info</h2>
+            <div class="row gy-5" id="statesContainer">
+               
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
+    
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- custom js -->
+    <script src="./assets/scripts/index.js"></script>
+</body>
+</html>
