@@ -55,11 +55,29 @@ function setInitialData(data){
 function listenSubmit(data){
     form.addEventListener('submit', function(e){
         e.preventDefault();
-        const input = document.querySelector("#stateInput").value;
-        const stateData = data.data.regional.filter(state => state.loc.toLowerCase() === input.toLowerCase());
+        const input = document.querySelector("#stateInput");
+        if (!input.value){
+            fireError("Please Enter state name");
+            return;
+        }
+        const stateData = data.data.regional.filter(state => state.loc.toLowerCase() === input.value.toLowerCase());
+        if(stateData.length === 0){
+            fireError("Please enter a valid state name");
+            return;
+        }
+        document.querySelector(".search-output-container").classList.remove("opacity-0")
         stateName.innerHTML = stateData[0].loc;
         cases.innerHTML = stateData[0].confirmedCasesIndian;
         discharged.innerHTML = stateData[0].discharged;
         cdeaths.innerHTML = stateData[0].deaths;
+        input.value = '';
     })
+}
+
+function fireError(message){
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: message,
+    });
 }
