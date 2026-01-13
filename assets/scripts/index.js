@@ -24,8 +24,8 @@ async function fetchData(){
 }
 
 function setInitialData(data){
-    totalCases.innerHTML = data.data.summary.total;
-    totalDeaths.innerHTML = data.data.summary.deaths;
+    totalCases.innerHTML = (data.data.summary.total).toLocaleString('en-IN');
+    totalDeaths.innerHTML = (data.data.summary.deaths).toLocaleString('en-IN');
     statesContainer.innerHTML = ''
     data.data.regional.forEach((region, idx)=>{
         statesContainer.innerHTML += `
@@ -34,16 +34,16 @@ function setInitialData(data){
                         <h2 id="stateName">${region.loc}</h2>
                         <div>
                              <div class="d-flex gap-1">
-                                <p class="m-0">Confirmed cases: </p>
-                                <p class="m-0" id="cases">${region.confirmedCasesIndian}</p>
+                                <p class="m-0">Confirmed : </p>
+                                <p class="m-0" id="cases">${(region.confirmedCasesIndian).toLocaleString('en-IN')}</p>
                             </div>
                             <div class="d-flex gap-1">
-                                <p class="m-0">Discharged: </p>
-                                <p class="m-0" id="discharged">${region.discharged}</p>
+                                <p class="m-0">Discharged : </p>
+                                <p class="m-0" id="discharged">${(region.discharged).toLocaleString('en-IN')}</p>
                             </div>
                             <div class="d-flex gap-1">
-                                <p class="m-0">Confirmed deaths: </p>
-                                <p class="m-0" id="cdeaths">${region.deaths}</p>
+                                <p class="m-0">Deaths : </p>
+                                <p class="m-0" id="cdeaths">${(region.deaths).toLocaleString('en-IN')}</p>
                             </div>
                         </div>
                     </div>
@@ -67,9 +67,9 @@ function listenSubmit(data){
         }
         document.querySelector(".search-output-container").classList.remove("opacity-0")
         stateName.innerHTML = stateData[0].loc;
-        cases.innerHTML = stateData[0].confirmedCasesIndian;
-        discharged.innerHTML = stateData[0].discharged;
-        cdeaths.innerHTML = stateData[0].deaths;
+        cases.innerHTML = (stateData[0].confirmedCasesIndian).toLocaleString('en-IN');
+        discharged.innerHTML = (stateData[0].discharged).toLocaleString('en-IN');
+        cdeaths.innerHTML = (stateData[0].deaths).toLocaleString('en-IN');
         input.value = '';
     })
 }
